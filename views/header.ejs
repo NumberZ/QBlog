@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'/>	
+	<title> my blog></title>
+   <link rel="stylesheet" href="http://labfile.oss.aliyuncs.com/amazeui/2.2.1/css/amazeui.min.css">
+      <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+
+ </head>
+ <body>
+ <header class="am-topbar am-topbar-fixed-top">
+ 	<div class="am-container">
+ 		<h1 class="am-topbar-brand">
+ 			<a href="#">Blog</a>
+ 		</h1>
+ 		<div class="am-collapse am-topbar-collapse" id="collapse-head">
+ 			<ul class="am-nav am-nav-pills am-topbar-nav">
+ 				<li><a href="/">主页</a></li>
+ 				<% if(user) { %>
+ 				<li><a href="/post">发表</a></li>
+ 				<li><a href="/logout">退出</a></li>
+        <li><a ><%= user.name %></a></li>
+ 
+ 				<% }else { %>
+ 			</ul>
+ 			 <ul style="margin-top:0; float:right" class="am-nav am-nav-pills am-topbar-nav">
+ 			 	<li><a href="/login">登录</a></li>
+ 		 		<li><a href="/reg">注册</a></li>
+ 		    </ul>
+ 		    <% } %>
+ 		</div>
+ 	</div>
+ </header>
+ <acticle>
+ </br></br></br>

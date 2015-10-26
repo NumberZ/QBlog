@@ -1,0 +1,54 @@
+    <%- include header %>
+    <div class="am-g">
+      <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <form id="form_reg" method="post" class="am-form">
+          <label for="text">用户名：</label>
+           <input type="text" name="name">
+          <br>
+          <label for="text">邮箱：</label>    
+          <input type="email" name="email">
+          <br>
+          <label for="password">密码:</label>
+          <input type="password" name="password">
+          <br>
+          <label for="password">确认密码：</label>
+          <input type="password" name="password-repeat">
+          <br>
+          <br />
+          <div class="am-cf">
+            <input id="btn_reg" type="button" value="注册" class="am-btn am-btn-primary am-btn-block am-btn-lg am-center">
+          </div>
+        </form>
+
+            <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+              <div class="am-modal-dialog">
+                <div class="am-modal-hd">警告！</div>
+                <div class="am-modal-bd">
+                  用户名已存在！
+                </div>
+                <div class="am-modal-footer">
+                  <span class="am-modal-btn">确定</span>
+                </div>
+              </div>
+            </div> 
+      </div>
+    </div>
+    <script>
+            $("#btn_reg").click(function(){
+                $.ajax({
+                  type:"POST",
+                  url:'/reg',
+                  data:$('#form_reg').serialize(),
+                  success:function(message) {
+                  console.log(message);
+                    if(message.messageID == 1){
+                      $('#my-alert').modal('open');
+                    }else {
+                    console.log(11);
+                        window.location.href = '/';
+                    };
+                  }
+                });
+            });
+    </script>
+    <%- include footer %>
